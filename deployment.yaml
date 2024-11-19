@@ -16,11 +16,11 @@ spec:
       containers:
         - name: python-container
           image: python:3.8
-          command: ["python", "/mnt/data/app.py"]
+          command: ["python", "/mnt/data/app.py"] # Aponta para o caminho correto
           volumeMounts:
             - mountPath: "/mnt/data"
               name: python-storage
       volumes:
         - name: python-storage
-          persistentVolumeClaim:
-            claimName: python-pvc
+          hostPath:
+            path: "/mnt/data" # Caminho montado no Minikube
