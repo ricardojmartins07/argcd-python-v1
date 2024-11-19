@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: python-container
+          image: python:3.8
+          command: ["python", "/mnt/data/app.py"]
+          volumeMounts:
+            - mountPath: "/mnt/data"
+              name: python-storage
+      volumes:
+        - name: python-storage
+          persistentVolumeClaim:
+            claimName: python-pvc
