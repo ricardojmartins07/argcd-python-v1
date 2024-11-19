@@ -16,9 +16,9 @@ spec:
       containers:
         - name: python-container
           image: python:3.8
-          command: ["python", "C:\Users\ricardojmartins\Desktop\hello-python\app.py"]
+          command: ["python", "\Users\ricardojmartins\Desktop\hello-python\app.py"]
           volumeMounts:
-            - mountPath: "C:\Users\ricardojmartins\Desktop\hello-python"
+            - mountPath: "\Users\ricardojmartins\Desktop\hello-python"
               name: python-storage
       volumes:
         - name: python-storage
